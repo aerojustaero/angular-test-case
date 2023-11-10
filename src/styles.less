@@ -1,14 +1,51 @@
-// app.component.less
+// styles.less
 
-@import './variables.less'; // Import your variable file
+@import 'variables.less';
 
+/* Global Styles */
 body {
   background-color: @page-background;
   color: @primary-color;
   font-size: @base-font-size;
+  margin: 0;
+  padding: 0;
 }
 
-a {
-  color: @link-color;
+/* Navigation Menu */
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  background-color: @primary-color;
+  justify-content: space-between;
+  align-items: center;
 }
 
+li {
+  margin: 0;
+  padding: 0;
+}
+
+li a {
+  display: block;
+  text-decoration: none;
+  padding: 10px 20px;
+  color: @page-background;
+  transition: color 0.3s ease;
+}
+
+li a:hover {
+  background-color: @secondary-color;
+  color: @page-background;
+}
+
+/* Highlight the active menu item */
+li.active a {
+  background-color: @secondary-color;
+}
+
+/* Apply styles to the router link */
+a.router-link-active {
+  background-color: @secondary-color;
+  color: @page-background;
+}
