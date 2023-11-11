@@ -5,7 +5,7 @@ const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     {
         path: 'home',
-        loadChildren: () => import('app/home/home.module').then(m => m.HomeModule),
+        loadChildren: () => import('@app/home/home.module').then(m => m.HomeModule),
         title: 'Home'
     },
     {
@@ -15,26 +15,26 @@ const routes: Routes = [
     },
     {
         path: 'billing',
-        loadChildren: () => import('app/billing/billing.module').then(m => m.BillingModule)
+        loadChildren: () => import('@app/billing/billing.module').then(m => m.BillingModule)
     },
     {
         path: 'invertory',
-        loadChildren: () => import('app/inventory/inventory.module').then(m => m.InventoryModule),
+        loadChildren: () => import('@app/inventory/inventory.module').then(m => m.InventoryModule),
         title: 'Inventory'
     },
     {
         path: 'profile',
-        loadChildren: () => import('app/profile/profile.module').then(m => m.ProfileModule),
+        loadChildren: () => import('@app/profile/profile.module').then(m => m.ProfileModule),
         title: 'Profile'
     },
     {
         path: 'reports',
-        loadChildren: () => import('app/reports/reports.module').then(m => m.ReportsModule),
+        loadChildren: () => import('@app/reports/reports.module').then(m => m.ReportsModule),
         title: 'Reports'
     },
     {
         path: '**',  // Wildcard route for unmatched paths
-        loadChildren: () => import('app/error/error.module').then(m => m.ErrorModule),
+        loadChildren: () => import('@app/error/error.module').then(m => m.ErrorModule),
         title: 'Error'
       },
 ];
