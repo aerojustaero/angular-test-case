@@ -28,6 +28,7 @@
                             "src/assets"
                         ],
                         "styles": [
+                            "node_modules/@fortawesome/fontawesome-free/less/fontawesome.less",
                             "node_modules/bootstrap/scss/bootstrap.scss",
                             "node_modules/bootstrap-icons/font/bootstrap-icons.css",
                             "src/variables.less",
@@ -92,6 +93,6 @@
         }
     },
     "cli": {
-      "analytics": "6ea8577b-557f-4016-a8af-49a10d6fd78a"
+        "analytics": "6ea8577b-557f-4016-a8af-49a10d6fd78a"
     }
 }

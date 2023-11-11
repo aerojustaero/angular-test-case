@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.less']
 })
 export class AppComponent {
+    public sidebarShow: boolean = false;
+
+    showSidebar(){
+        this.sidebarShow = !this.sidebarShow;
+    }
 }

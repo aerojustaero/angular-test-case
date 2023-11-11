@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'atc-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+    selector: 'atc-navbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.less']
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+    @Output()
+    public sidebarShow = new  EventEmitter();
 
-  ngOnInit() {
-  }
+    constructor() { }
+
+    ngOnInit() {
+    }
+
+    showSidebar() {
+        this.sidebarShow.emit();
+    }
 
 }

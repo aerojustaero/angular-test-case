@@ -1,6 +1,5 @@
 // styles.less
-
-@import 'variables.less';
+@import './variables.less';
 
 /* Global Styles */
 body {
@@ -12,21 +11,16 @@ body {
 }
 
 /* Navigation Menu */
-ul {
+#navbarNavAltMarkup {
   list-style: none;
   padding: 0;
   display: flex;
-  background-color: @primary-color;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
 }
 
-li {
-  margin: 0;
-  padding: 0;
-}
 
-li a {
+a {
   display: block;
   text-decoration: none;
   padding: 10px 20px;
@@ -34,17 +28,16 @@ li a {
   transition: color 0.3s ease;
 }
 
-li a:hover {
+a.nav-link:hover {
   background-color: @secondary-color;
   color: @page-background;
 }
 
-/* Highlight the active menu item */
-li.active a {
-  background-color: @secondary-color;
+
+a.nav-link.active {
+  font-weight: 900;
 }
 
-/* Apply styles to the router link */
 a.router-link-active {
   background-color: @secondary-color;
   color: @page-background;
