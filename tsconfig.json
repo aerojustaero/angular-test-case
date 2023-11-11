@@ -1,7 +1,16 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
-        "baseUrl": "src",
+        "baseUrl": "./",
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true,
+        "paths": {
+            "@app/*": ["src/app/*"],
+            "@env/*": ["src/environments/*"],
+            "@shared/*": ["src/shared/*"],
+            "@core/*": ["src/core/*"],
+            "@auth/*": ["src/auth/*"]
+          },
         "outDir": "./dist/out-tsc",
         "forceConsistentCasingInFileNames": true,
         "strict": true,
@@ -17,10 +26,7 @@
         "importHelpers": true,
         "target": "es2020",
         "module": "es2020",
-        "lib": [
-            "es2020",
-            "dom"
-        ]
+        "lib": ["es2020", "dom"]
     },
     "angularCompilerOptions": {
         "enableI18nLegacyMessageIdFormat": false,

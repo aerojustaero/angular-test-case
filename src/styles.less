@@ -1,1 +1,44 @@
+// styles.less
+@import './variables.less';
 
+/* Global Styles */
+body {
+  background-color: @page-background;
+  color: @primary-color;
+  font-size: @base-font-size;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation Menu */
+#navbarNavAltMarkup {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+
+a {
+  display: block;
+  text-decoration: none;
+  padding: 10px 20px;
+  color: @page-background;
+  transition: color 0.3s ease;
+}
+
+a.nav-link:hover {
+  background-color: @secondary-color;
+  color: @page-background;
+}
+
+
+a.nav-link.active {
+  font-weight: 900;
+}
+
+a.router-link-active {
+  background-color: @secondary-color;
+  color: @page-background;
+}

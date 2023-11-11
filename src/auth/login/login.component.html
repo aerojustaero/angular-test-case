@@ -1,0 +1,53 @@
+<div class="d-flex justify-content-center mt-5">
+    <div class="col-md-6 col-12 col-lg-4 mt-5 mb-5 p-4 border rounded">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3 mt-3 col-12">
+          <div class="input-group">
+            <span class="input-group-text">
+              <i class="bi bi-envelope"></i>
+            </span>
+            <input
+              class="form-control"
+              placeholder="Username"
+              formControlName="username"
+            />
+          </div>
+          <small
+            class="text-danger"
+            *ngIf="loginForm.get('username')?.hasError('required') && (loginForm.get('username')?.dirty || loginForm.get('username')?.touched)"
+          >
+            Required
+          </small>
+        </div>
+        <div class="mb-3 col-12">
+          <div class="input-group">
+            <span class="input-group-text">
+              <i class="bi bi-key"></i>
+            </span>
+            <input
+              type="password"
+              autocomplete="off"
+              class="form-control"
+              placeholder="Password"
+              formControlName="password"
+            />
+          </div>
+          <small
+            class="text-danger"
+            *ngIf="loginForm.get('password')?.hasError('required') && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)"
+          >
+            Required
+          </small>
+        </div>
+        <div class="mb-3 col-12 text-center">
+          <button
+            type="submit"
+            [disabled]="loginForm.invalid"
+            class="btn btn-primary btn-lg"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>

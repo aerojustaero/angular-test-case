@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common'
 import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
-import { SharedModule } from 'shared'
+import { SharedModule } from '@shared/shared.module'
 import { HomePageComponent } from './pages/home-page.component';
 
 

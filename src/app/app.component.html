@@ -1,1 +1,54 @@
-<router-outlet></router-outlet>
+<!-- app.component.html -->
+<div class="container-fluid">
+<atc-navbar (sidebarShow)="showSidebar()"></atc-navbar>
+
+    <div
+        class="sidebar-slider"
+        [class.sidebar-slide-in]="sidebarShow"
+    >
+        <div
+            class="sidebar-close mb-4"
+            (click)="showSidebar()"
+        >
+            X
+        </div>
+        <div class="sidebar-content">
+            <div style="font-size: 1.5rem;">
+                <h2>
+                    <b>Menu</b>
+                </h2>
+            </div>
+            <div
+                routerLink="/home"
+                routerLinkActive="active-link"
+            >
+                Home Page
+            </div>
+            <div
+                routerLink="/inventory"
+                routerLinkActive="active-link"
+            >
+                Inventory
+            </div>
+            <div
+                routerLink="/reports"
+                routerLinkActive="active-link"
+            >
+                Reports
+            </div>
+            <div
+                routerLink="/billing"
+                routerLinkActive="active-link"
+            >
+                Billing
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+</div>
