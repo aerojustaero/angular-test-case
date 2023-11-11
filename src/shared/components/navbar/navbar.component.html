@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div
+    <div *ngIf="(currentUser$ | async) === null"
         class="sidebar-opener"
         (click)="showSidebar()"
     >
@@ -31,9 +31,9 @@
                 <a
                     class="nav-item nav-link"
                     [routerLinkActive]="['active']"
-                    [routerLink]="true ? '/profile' : '/login'"
+                    [routerLink]="(currentUser$ | async) ? '/profile' : '/login'"
                 >
-                    {{ true ? 'Profile' : 'Login' }}
+                    {{ (currentUser$ | async) ? 'Profile' : 'Login' }}
                 </a>
             </div>
             <div
@@ -41,7 +41,7 @@
                 style="cursor: pointer;"
                 *ngIf="true"
             >
-                <a class="nav-item nav-link">Logout</a>
+                <a class="nav-item nav-link" (click)="logout()">Logout</a>
             </div>
         </div>
     </div>

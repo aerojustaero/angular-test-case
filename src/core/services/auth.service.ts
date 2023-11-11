@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core'
+import { Router } from '@angular/router';
 import { IUser, UserLoginRequest } from '@core/models/user';
 import { environment } from '@env/environment';
-import { ReplaySubject, map, throwError } from 'rxjs';
+import { ReplaySubject, map} from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -10,7 +11,7 @@ export class AuthService {
     private currentUserSource = new ReplaySubject<IUser>(1);
     currentUser$ = this.currentUserSource.asObservable();
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private router: Router) { }
 
     public login(request: UserLoginRequest) {
         return this.http.post<IUser>(this.baseUrl + 'auth/login', request).pipe(
@@ -23,5 +24,9 @@ export class AuthService {
         );
     }
 
-    public logout() { }
+    public logout() {
+        localStorage.removeItem('token');
+        this.currentUserSource.complete();
+        this.router.navigateByUrl('/auth/login');
+    }
 }
