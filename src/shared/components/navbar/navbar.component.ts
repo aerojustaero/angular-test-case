@@ -1,7 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IUser } from '@core/models/index.';
-import { AuthService } from '@core/services';
-import { Observable } from 'rxjs';
+import { AuthService, StorageService } from '@core/services';
+import { forkJoin} from 'rxjs';
 
 @Component({
     selector: 'atc-navbar',
@@ -13,12 +13,22 @@ export class NavbarComponent implements OnInit {
     @Output()
     public sidebarShow = new  EventEmitter();
 
-    currentUser$!: Observable<IUser>;
 
-    constructor(private accountService: AuthService) { }
+    public isLoggedIn!: boolean;
+
+    currentUser!: IUser;
+
+
+
+    constructor(private authService: AuthService, private storageService: StorageService) {
+     }
 
     ngOnInit() {
-        this.currentUser$ = this.accountService.currentUser$;
+        this.currentUser = this.storageService.getUser();
+
+        this.storageService.getLogged().subscribe({
+            next: data => { this.isLoggedIn =data;console.log(data);}
+        })
     }
 
     showSidebar() {
@@ -26,8 +36,7 @@ export class NavbarComponent implements OnInit {
     }
 
     logout(){
-        console.log('LOGOUT');
-        this.accountService.logout();
+        forkJoin([this.authService.logout(), this.storageService.setLogged(false)]);
     }
 
 }

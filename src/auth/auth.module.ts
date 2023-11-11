@@ -16,6 +16,7 @@ const MODULES = [
     AuthRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CoreModule,
     SharedModule
 ];
 
